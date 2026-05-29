@@ -1,0 +1,192 @@
+/* 폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  outline: 0;
+}
+body{
+  height: 100vh;
+  background-color: #333;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #333;
+}
+main header{
+    position: relative;
+    width: 20%;
+    height: 100%;
+    padding: 10vh 5vw;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    box-shadow:0 0 20px rgba(0, 0, 0, 0.5);
+}
+main header h1{
+    font-size: 0;
+    color: #fff;
+}
+main header h1 i{
+    font-size: 5vw;
+    color: rgb(216, 240, 171);
+}
+main header h1 span{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.8vw;
+    line-height: 2;
+    color: #fff;
+}
+header address{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 1.2;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #888;
+}
+main nav{
+    position: absolute;
+    top: 10vh;
+    right: 5vw;
+}
+main nav ul{
+    display: flex;
+}
+main ul li a{
+    margin-right: 30px;
+    font-size: 18px;
+    color: #bbb;
+}
+main section{
+    position: relative;
+    width: 80%;
+    height: 100%;
+    padding-top: 140px;
+    display: flex;
+    z-index: 1;
+}
+main section article{
+    position: relative;
+    flex: 1;
+    padding: 70px 40px 100px;
+    cursor: pointer;
+    /* 호버되지 않을시 1 설정 */
+    z-index: 1;
+    background-color: rgb(216, 240, 171);
+    overflow: hidden;
+    opacity: 0.6;
+    transition: flex 1s, opacity 1s;
+}
+main section article:hover{
+    flex: 1.5;
+    opacity: 1;
+    z-index: 5;
+}
+/* 마우스 호버했을 때 왼쪽에서 가상의 패널 요소 */
+main section article::before{
+    position: absolute;
+    top: 0;
+    /* 마우스 호버 전 article의 왼쪽 바깥쪽에 위치 */
+    left: -200px;
+    content: "";
+    display: block;
+    width: 80%;
+    height: 95%;
+    background-color: rgb(175, 214, 102);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s;
+}
+main section article:hover::before{
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+main section article .inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.main section article .inner .txt{
+    width: 75%;
+}
+.txt h2{
+    font-weight: normal;
+    font-size: 2vw;
+    line-height: 1;
+    font-family: "Alegreya Sans SC";
+    color: green;
+    padding-top: 70px;
+    margin-bottom: 40px;
+    transition: 1s;
+}
+.txt h2::after{
+    content: "";
+    display: block;
+    margin-top: 20px;
+    width: 40px;
+    height: 2px;
+    background-color: rgb(86, 165, 12);
+    transition: 1.5s;
+}
+article:hover .txt h2{
+    font-size: 5vw;
+    padding-top: 0;
+}
+article:hover .txt h2::after{
+    width: 120px;
+    background-color: lemonchiffon;
+}
+.txt p{
+     font-size: 14px;
+  line-height: 1.4;
+  font-family: "arial";
+  color: #6ad36f;
+}
+article:hover .txt p{
+    color: rgb(62, 122, 5);
+}
+article .inner figure{
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    /* 왼쪽 방향 기준으로 변형이 일어나도록 중심축 변경 */
+    transform-origin: left center;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    /* 영상 박스 채도 낮추기 */
+    filter: saturate(50%);
+    transition: 1s;
+}
+article:hover .inner figure{
+    height: 25vh;
+    filter: saturate(120%);
+}
+article .inner figure video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+}
+main aside{
+    display: none;
+}
