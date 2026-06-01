@@ -82,6 +82,8 @@ main section{
     z-index: 1;
 }
 main section article{
+    width: 100%;
+    height: 100%;
     position: relative;
     flex: 1;
     padding: 70px 40px 100px;
@@ -92,6 +94,7 @@ main section article{
     overflow: hidden;
     opacity: 0.6;
     transition: flex 1s, opacity 1s;
+    flex-wrap: wrap;
 }
 main section article:hover{
     flex: 1.5;
@@ -127,6 +130,10 @@ main section article .inner{
     align-content: space-between;
 }
 .main section article .inner .txt{
+    width: 100%;
+    transition: 0.5s;
+}
+.main section article:hover .inner .txt{
     width: 75%;
 }
 .txt h2{
@@ -151,13 +158,14 @@ main section article .inner{
 article:hover .txt h2{
     font-size: 5vw;
     padding-top: 0;
+    font-weight: bold;
 }
 article:hover .txt h2::after{
     width: 120px;
     background-color: lemonchiffon;
 }
 .txt p{
-     font-size: 14px;
+     font-size: 11px;
   line-height: 1.4;
   font-family: "arial";
   color: #6ad36f;
@@ -188,5 +196,112 @@ article .inner figure video{
     transform: scale(1.1);
 }
 main aside{
-    display: none;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    /* left: 0; */
+    width: 100%;
+    height: 100vh;
+    background-color: #a2b6a2;
+    z-index: 9999;
+    padding: 20vh 7vw 14vh 20vw;
+    display: flex;
+    justify-content: space-between;
+    transition: 1s;
+    opacity: 0;
+    visibility: hidden;
+}
+main aside.on{
+    opacity: 1;
+    left: 0;
+    visibility: visible;
+}
+main aside .txt {
+  width: 25%;
+  height: 100%;
+}
+main aside .txt h1 {
+  font-weight: normal;
+  font-size: 6vw;
+  line-height: 1;
+  font-family: "Alegreya Sans SC";
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+main aside .txt p {
+  font-size: 1.1vw;
+  line-height: 1.3;
+  font-family: "arial";
+  color: #d8ecd8;
+  margin-bottom: 60px;
+}
+main aside .txt span {
+  cursor: pointer;
+  color: rgb(33, 136, 29);
+}
+main aside figure{
+    width: 72%;
+    height: 100%;
+}
+main aside figure video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 반응형 */
+@media(max-width : 390px){
+    address{
+        padding-top: 52px;
+    }
+    .txt h2{
+        font-size: 16px;
+    }
+    main aside{
+        padding-left: 10px !important;
+    }
+    main aside .txt p{
+        font-size: 16px;
+    }
+}
+@media(max-width:768px){
+    main{
+        flex-direction: column;
+    }
+    main header{
+        width: 100%;
+        padding: 20px;
+        justify-content: flex-start;
+    }
+    main header h1{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-right: 20px;
+    }
+    main header i{
+        font-size: 48px !important;
+    }
+    main header span{
+        font-size: 18px !important;
+    }
+    main nav{
+        top: 4vh;
+    }
+    main address{
+        padding-top: 20px;
+    }
+    main section{
+        padding-top: 0;
+        width: 100%;
+    }
+}
+@media(max-width : 1000px){
+    main section{
+        flex-direction: column;
+    }
+    main section article{
+        padding: 2%;
+        overflow: visible;
+    }
 }
